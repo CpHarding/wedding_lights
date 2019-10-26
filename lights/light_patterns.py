@@ -1,4 +1,4 @@
-from definitions import MODES
+from light_defs import MODES
 
 OFF = {'funct': 'off'}
 RESTART = {'funct': 'restart'}
