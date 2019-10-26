@@ -1,5 +1,4 @@
 import argparse
-import json
 import logging
 import os
 import pprint
@@ -46,7 +45,7 @@ def create_app(settings):
     app.settings.update(load_config(app))
     app.logger.debug(f'Current Config: \n{pprint.pformat(app.settings)}')
 
-    app.lights = LightManager({'scan':not settings.get('skip_scan', False),
+    app.lights = LightManager({'scan': not settings.get('skip_scan', False),
                                'tables': app.settings['tables']})
     # app.celery = make_celery(app)
     return app

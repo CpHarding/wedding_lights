@@ -1,4 +1,4 @@
-from light_defs import MODES
+from light_definitions import MODES
 import light_patterns as lp
 
 CONFIG_FILE = 'config.yaml'
