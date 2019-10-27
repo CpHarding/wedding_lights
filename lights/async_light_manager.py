@@ -3,6 +3,7 @@ import json
 import logging
 import threading
 import time
+import pprint
 
 import httpx
 
@@ -20,7 +21,7 @@ class LightManager:
         self.settings = settings if isinstance(settings, dict) else {}
         logger.info('Getting clients...')
         self.clients = self.read_clients()
-        logger.info(f'Clients: {self.clients}')
+        logger.info(f'Clients: {pprint.pformat(self.clients)}')
         self.refresh_clients()
 
     def set_lights(self, msgs, addrs='ALL'):
@@ -40,17 +41,18 @@ class LightManager:
         :param state: dict of state
         :return:
         """
+        logger.debug(f'Got State: {state}')
         if 'all' in [k.lower() for k in state.keys()]:
             self.set_lights(state['all'])
         else:
             lights = []
             states = []
-            for light_num, light_state in state.items():
+            for light_num, light_state in state['state'].items():
                 if self.clients.get(self.settings['tables'].get(light_num, False)):
                     lights.append(self.clients[self.settings['tables'][light_num]])
                     states.append(light_state)
-            logger.debug(f'Lights: {lights}')
-            logger.debug(f'States: {states}')
+            logger.info(f'Lights: {lights}')
+            logger.info(f'States: {states}')
             self.set_lights(states, addrs=lights)
 
     def read_clients(self, scan=None):

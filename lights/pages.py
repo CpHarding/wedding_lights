@@ -33,6 +33,7 @@ def btn1():
             ca.data['state_num'] = 0
         elif ca.data['state_num'] < len(ca.settings['states']) - 1:
             ca.data['state_num'] += 1
+        ca.lights.decode_state(ca.settings['states'][ca.data['state_num']])
     return redirect(url_for('index'))
 
 
@@ -41,6 +42,7 @@ def btn2():
     if not _run_btn_code(BTN_NUM):
         if ca.data['state_num'] > 0:
             ca.data['state_num'] -= 1
+        ca.lights.decode_state(ca.settings['states'][ca.data['state_num']])
     return redirect(url_for('index'))
 
 
@@ -48,6 +50,7 @@ def btn3():
     BTN_NUM = '3'
     if not _run_btn_code(BTN_NUM):
         ca.data['state_num'] = 0
+        ca.lights.decode_state(ca.settings['states'][ca.data['state_num']])
     return redirect(url_for('index'))
 
 

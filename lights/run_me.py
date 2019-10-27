@@ -12,8 +12,7 @@ import log_ext
 import pages
 from async_light_manager import LightManager
 
-os.environ['FLASK_ENV'] = 'development'
-os.environ['ENV'] = 'development'
+
 
 logger = logging.getLogger('WeddingLights')
 logger.setLevel(logging.DEBUG)
@@ -83,8 +82,9 @@ def load_config(app):
 
 def get_parser():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--log', default='DEBUG', help='logging level')
-    parser.add_argument('--skip_scan', action='store_true', default=False, help='do not scan for clients')
+    parser.add_argument('--log', default='INFO', help='logging level')
+    parser.add_argument('--skip_scan', default=False, action='store_true',  help='do not scan for clients')
+    parser.add_argument('--debug', default=False, action='store_true', help='Run in debug mode')
     return parser
 
 
@@ -94,10 +94,13 @@ if __name__ == '__main__':
     args = vars(get_parser().parse_args())
 
     # Set log level and display
-    logger.setLevel(args.get('log', logging.INFO))
+    logger.setLevel(args.get('log', 'INFO').upper())
     lvl = logging.getLevelName(logger.getEffectiveLevel())
     getattr(logger, lvl.lower())(f'Log Level: {lvl}')
 
     app = create_app(args)
-    app.debug = False
+    if args.get('debug', False):
+        os.environ['FLASK_ENV'] = 'development'
+        os.environ['ENV'] = 'development'
+        app.debug = True
     app.run(host='0.0.0.0')
