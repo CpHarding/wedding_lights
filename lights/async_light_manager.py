@@ -101,7 +101,7 @@ class LightManager:
             logger.info(f'messaging {addr} - {msg_string}')
             try:
                 return await client.get(f'http://{addr}/{msg_string}')
-            except httpx.HTTPError:
+            except Exception:
                 pass
 
         # Convert message dict to required string

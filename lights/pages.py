@@ -3,6 +3,7 @@ import time
 import celery
 from flask import redirect, url_for, current_app as ca, render_template, request
 
+import definitions as defs
 import light_patterns as lp
 
 
@@ -78,7 +79,26 @@ def btn6():
 def btn7():
     BTN_NUM = '7'
     if not _run_btn_code(BTN_NUM):
-        pass
+        ca.lights.set_lights(lp.OFF)
+        addrs = []
+        for table_num in ca.settings['tables']:
+            addr = ca.lights.clients[ca.settings['tables'][table_num]]
+            addrs.append(addr)
+            for color in [lp.RED, lp.GREEN, lp.BLUE]:
+                ca.lights.set_lights(color, addr)
+                time.sleep(0.5)
+
+        colors = [dict(lp.STATIC, **defs.TABLE1_COL),
+                  dict(lp.STATIC, **defs.TABLE2_COL),
+                  dict(lp.STATIC, **defs.TABLE3_COL),
+                  dict(lp.STATIC, **defs.TABLE4_COL),
+                  dict(lp.STATIC, **defs.TABLE5_COL),
+                  dict(lp.STATIC, **defs.TABLE6_COL),
+                  lp.RAINBOW_CYCLE,
+                  lp.RAINBOW_CYCLE,
+                  ]
+        ca.lights.set_lights(colors, addrs)
+
     return redirect(url_for('index'))
 
 

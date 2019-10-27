@@ -22,10 +22,19 @@
                 Last Message: <strong>{{data["message"]}}</strong>
             </div>
             <div class="alert alert-info" role="alert">
-                State:<strong>{{data["state"]["name"]}}</strong>
+                State: <strong>{{data["state"]["name"]}}</strong>
             </div>
             <div class="alert alert-secondary" role="alert">
-                States: {{states}}
+                States:
+                {% for s in states %}
+                {% if data["state"]["name"] == s %}
+                <b>
+                    {% endif %}
+                    {{s}}
+                    {% if data["state"]["name"] == s %}
+                </b>
+                {% endif %}
+                {% endfor %}
             </div>
         </div>
     </div>
