@@ -1,6 +1,5 @@
 import time
-
-import celery
+import pprint
 from flask import redirect, url_for, current_app as ca, render_template, request
 
 import definitions as defs
@@ -22,8 +21,8 @@ def index():
 def web_config():
     if request.method == 'POST':
         for i in range(1, 8):
-            ca.settings['tables'][i] = request.form[f'table{i}']
-        print(ca.settings['tables'])
+            ca.settings['tables'][f'{i}'] = request.form[f'table{i}']
+        ca.logger.info(f'Table config: \r\n{pprint.pformat(ca.settings["tables"])}')
     return render_template('config.html', config=ca.settings)
 
 
@@ -82,7 +81,9 @@ def btn7():
         ca.lights.set_lights(lp.OFF)
         addrs = []
         for table_num in ca.settings['tables']:
-            addr = ca.lights.clients[ca.settings['tables'][table_num]]
+            addr = ca.lights.clients.get(ca.settings['tables'][table_num], False)
+            if not addr:
+                continue
             addrs.append(addr)
             for color in [lp.RED, lp.GREEN, lp.BLUE]:
                 ca.lights.set_lights(color, addr)
@@ -115,18 +116,6 @@ def _run_btn_code(BTN_NUM):
         return True
     else:
         return False
-
-
-@celery.task
-def cycle():
-    order = [lp.OFF, lp.RED, lp.GREEN, lp.BLUE]
-    with ca.app_context():
-        ca.logger.info('running cycle')
-        for m in order:
-            ca.lights.all_lights(m)
-            time.sleep(0.5)
-        ca.data['message'] = 'btn7 (complete)'
-    return True
 
 
 # Set up buttons

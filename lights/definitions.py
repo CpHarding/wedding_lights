@@ -71,7 +71,7 @@ DEFAULT_CONFIG = {
         '2': {'name': 'Prev State'},
         '3': {'name': 'Reset States'},
         '4': {'name': 'OFF', 'state': {'all': lp.OFF}},
-        '5': {'name': 'RGB', 'state': {'3': lp.RED, '4': lp.GREEN, '6': lp.BLUE}},
+        '5': {'name': 'btn_5'},
         '6': {'name': 'All Rainbow', 'state': {'all': lp.RAINBOW}},
         '7': {'name': 'TestLights'},
     },

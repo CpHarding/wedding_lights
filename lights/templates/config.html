@@ -9,124 +9,164 @@
     <title>config</title>
 </head>
 <body>
-<form name="tables" action="/web_config" method="POST">
-    Table1:
-    <select name="table1" class="custom-select">
-        <option selected="{{ config['tables']['1'] }}">{{ config['tables']['1'] }}</option>
-        <option value="WeddingLight01">WeddingLight01</option>
-        <option value="WeddingLight02">WeddingLight02</option>
-        <option value="WeddingLight03">WeddingLight03</option>
-        <option value="WeddingLight04">WeddingLight04</option>
-        <option value="WeddingLight05">WeddingLight05</option>
-        <option value="WeddingLight06">WeddingLight06</option>
-        <option value="WeddingLight07">WeddingLight07</option>
-        <option value="WeddingLight08">WeddingLight08</option>
-        <option value="WeddingLight09">WeddingLight09</option>
-        <option value="WeddingLight10">WeddingLight10</option>
-    </select>
-    Table2:
-    <select name="table2" class="custom-select">
-        <option selected="{{ config['tables']['2'] }}">{{ config['tables']['2'] }}</option>
-        <option value="WeddingLight01">WeddingLight01</option>
-        <option value="WeddingLight02">WeddingLight02</option>
-        <option value="WeddingLight03">WeddingLight03</option>
-        <option value="WeddingLight04">WeddingLight04</option>
-        <option value="WeddingLight05">WeddingLight05</option>
-        <option value="WeddingLight06">WeddingLight06</option>
-        <option value="WeddingLight07">WeddingLight07</option>
-        <option value="WeddingLight08">WeddingLight08</option>
-        <option value="WeddingLight09">WeddingLight09</option>
-        <option value="WeddingLight10">WeddingLight10</option>
-    </select>
-    Table3:
-    <select name="table3" class="custom-select">
-        <option selected="{{ config['tables']['3'] }}">{{ config['tables']['3'] }}</option>
-        <option value="WeddingLight01">WeddingLight01</option>
-        <option value="WeddingLight02">WeddingLight02</option>
-        <option value="WeddingLight03">WeddingLight03</option>
-        <option value="WeddingLight04">WeddingLight04</option>
-        <option value="WeddingLight05">WeddingLight05</option>
-        <option value="WeddingLight06">WeddingLight06</option>
-        <option value="WeddingLight07">WeddingLight07</option>
-        <option value="WeddingLight08">WeddingLight08</option>
-        <option value="WeddingLight09">WeddingLight09</option>
-        <option value="WeddingLight10">WeddingLight10</option>
-    </select>
-    Table4
-    <select name="table4" class="custom-select">
-        <option selected="{{ config['tables']['4'] }}">{{ config['tables']['4'] }}</option>
-        <option value="WeddingLight01">WeddingLight01</option>
-        <option value="WeddingLight02">WeddingLight02</option>
-        <option value="WeddingLight03">WeddingLight03</option>
-        <option value="WeddingLight04">WeddingLight04</option>
-        <option value="WeddingLight05">WeddingLight05</option>
-        <option value="WeddingLight06">WeddingLight06</option>
-        <option value="WeddingLight07">WeddingLight07</option>
-        <option value="WeddingLight08">WeddingLight08</option>
-        <option value="WeddingLight09">WeddingLight09</option>
-        <option value="WeddingLight10">WeddingLight10</option>
-    </select>
-    Table5
-    <select name="table5" class="custom-select">
-        <option selected="{{ config['tables']['5'] }}">{{ config['tables']['5'] }}</option>
-        <option value="WeddingLight01">WeddingLight01</option>
-        <option value="WeddingLight02">WeddingLight02</option>
-        <option value="WeddingLight03">WeddingLight03</option>
-        <option value="WeddingLight04">WeddingLight04</option>
-        <option value="WeddingLight05">WeddingLight05</option>
-        <option value="WeddingLight06">WeddingLight06</option>
-        <option value="WeddingLight07">WeddingLight07</option>
-        <option value="WeddingLight08">WeddingLight08</option>
-        <option value="WeddingLight09">WeddingLight09</option>
-        <option value="WeddingLight10">WeddingLight10</option>
-    </select>
-    Table6
-    <select name="table6" class="custom-select">
-        <option selected="{{ config['tables']['6'] }}">{{ config['tables']['6'] }}</option>
-        <option value="WeddingLight01">WeddingLight01</option>
-        <option value="WeddingLight02">WeddingLight02</option>
-        <option value="WeddingLight03">WeddingLight03</option>
-        <option value="WeddingLight04">WeddingLight04</option>
-        <option value="WeddingLight05">WeddingLight05</option>
-        <option value="WeddingLight06">WeddingLight06</option>
-        <option value="WeddingLight07">WeddingLight07</option>
-        <option value="WeddingLight08">WeddingLight08</option>
-        <option value="WeddingLight09">WeddingLight09</option>
-        <option value="WeddingLight10">WeddingLight10</option>
-    </select>
-    table7
-    <select name="table7" class="custom-select">
-        <option selected="{{ config['tables']['7'] }}">{{ config['tables']['7'] }}</option>
-        <option value="WeddingLight01">WeddingLight01</option>
-        <option value="WeddingLight02">WeddingLight02</option>
-        <option value="WeddingLight03">WeddingLight03</option>
-        <option value="WeddingLight04">WeddingLight04</option>
-        <option value="WeddingLight05">WeddingLight05</option>
-        <option value="WeddingLight06">WeddingLight06</option>
-        <option value="WeddingLight07">WeddingLight07</option>
-        <option value="WeddingLight08">WeddingLight08</option>
-        <option value="WeddingLight09">WeddingLight09</option>
-        <option value="WeddingLight10">WeddingLight10</option>
-    </select>
-    table8
-    <select name="table8" class="custom-select">
-        <option selected="{{ config['tables']['8'] }}">{{ config['tables']['8'] }}</option>
-        <option value="WeddingLight01">WeddingLight01</option>
-        <option value="WeddingLight02">WeddingLight02</option>
-        <option value="WeddingLight03">WeddingLight03</option>
-        <option value="WeddingLight04">WeddingLight04</option>
-        <option value="WeddingLight05">WeddingLight05</option>
-        <option value="WeddingLight06">WeddingLight06</option>
-        <option value="WeddingLight07">WeddingLight07</option>
-        <option value="WeddingLight08">WeddingLight08</option>
-        <option value="WeddingLight09">WeddingLight09</option>
-        <option value="WeddingLight10">WeddingLight10</option>
-    </select>
-    <input type="submit" value="Save" class="btn-info btn-sm btn-block">
-</form>
+<div class="container">
+    <form name="tables" action="/web_config" method="POST">
+        <div class="row">
+            <div class="column"> Table1:</div>
+            <div class="column">
+                <select name="table1" class="form-control pull-right custom-select">
+                    <option selected="{{ config['tables']['1'] }}">{{ config['tables']['1'] }}</option>
+                    <option value="WeddingLight01">WeddingLight01</option>
+                    <option value="WeddingLight02">WeddingLight02</option>
+                    <option value="WeddingLight03">WeddingLight03</option>
+                    <option value="WeddingLight04">WeddingLight04</option>
+                    <option value="WeddingLight05">WeddingLight05</option>
+                    <option value="WeddingLight06">WeddingLight06</option>
+                    <option value="WeddingLight07">WeddingLight07</option>
+                    <option value="WeddingLight08">WeddingLight08</option>
+                    <option value="WeddingLight09">WeddingLight09</option>
+                    <option value="WeddingLight10">WeddingLight10</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="column"> Table2:</div>
+            <div class="column">
+                <select name="table2" class="custom-select">
+                    <option selected="{{ config['tables']['2'] }}">{{ config['tables']['2'] }}</option>
+                    <option value="WeddingLight01">WeddingLight01</option>
+                    <option value="WeddingLight02">WeddingLight02</option>
+                    <option value="WeddingLight03">WeddingLight03</option>
+                    <option value="WeddingLight04">WeddingLight04</option>
+                    <option value="WeddingLight05">WeddingLight05</option>
+                    <option value="WeddingLight06">WeddingLight06</option>
+                    <option value="WeddingLight07">WeddingLight07</option>
+                    <option value="WeddingLight08">WeddingLight08</option>
+                    <option value="WeddingLight09">WeddingLight09</option>
+                    <option value="WeddingLight10">WeddingLight10</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="column"> Table3:</div>
+            <div class="column">
+                <select name="table3" class="custom-select">
+                    <option selected="{{ config['tables']['3'] }}">{{ config['tables']['3'] }}</option>
+                    <option value="WeddingLight01">WeddingLight01</option>
+                    <option value="WeddingLight02">WeddingLight02</option>
+                    <option value="WeddingLight03">WeddingLight03</option>
+                    <option value="WeddingLight04">WeddingLight04</option>
+                    <option value="WeddingLight05">WeddingLight05</option>
+                    <option value="WeddingLight06">WeddingLight06</option>
+                    <option value="WeddingLight07">WeddingLight07</option>
+                    <option value="WeddingLight08">WeddingLight08</option>
+                    <option value="WeddingLight09">WeddingLight09</option>
+                    <option value="WeddingLight10">WeddingLight10</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="column"> Table4:</div>
+            <div class="column">
+                <select name="table4" class="custom-select">
+                    <option selected="{{ config['tables']['4'] }}">{{ config['tables']['4'] }}</option>
+                    <option value="WeddingLight01">WeddingLight01</option>
+                    <option value="WeddingLight02">WeddingLight02</option>
+                    <option value="WeddingLight03">WeddingLight03</option>
+                    <option value="WeddingLight04">WeddingLight04</option>
+                    <option value="WeddingLight05">WeddingLight05</option>
+                    <option value="WeddingLight06">WeddingLight06</option>
+                    <option value="WeddingLight07">WeddingLight07</option>
+                    <option value="WeddingLight08">WeddingLight08</option>
+                    <option value="WeddingLight09">WeddingLight09</option>
+                    <option value="WeddingLight10">WeddingLight10</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="column"> Table5:</div>
+            <div class="column">
+                <select name="table5" class="custom-select">
+                    <option selected="{{ config['tables']['5'] }}">{{ config['tables']['5'] }}</option>
+                    <option value="WeddingLight01">WeddingLight01</option>
+                    <option value="WeddingLight02">WeddingLight02</option>
+                    <option value="WeddingLight03">WeddingLight03</option>
+                    <option value="WeddingLight04">WeddingLight04</option>
+                    <option value="WeddingLight05">WeddingLight05</option>
+                    <option value="WeddingLight06">WeddingLight06</option>
+                    <option value="WeddingLight07">WeddingLight07</option>
+                    <option value="WeddingLight08">WeddingLight08</option>
+                    <option value="WeddingLight09">WeddingLight09</option>
+                    <option value="WeddingLight10">WeddingLight10</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="column"> Table6:</div>
+            <div class="column">
+                <select name="table6" class="custom-select">
+                    <option selected="{{ config['tables']['6'] }}">{{ config['tables']['6'] }}</option>
+                    <option value="WeddingLight01">WeddingLight01</option>
+                    <option value="WeddingLight02">WeddingLight02</option>
+                    <option value="WeddingLight03">WeddingLight03</option>
+                    <option value="WeddingLight04">WeddingLight04</option>
+                    <option value="WeddingLight05">WeddingLight05</option>
+                    <option value="WeddingLight06">WeddingLight06</option>
+                    <option value="WeddingLight07">WeddingLight07</option>
+                    <option value="WeddingLight08">WeddingLight08</option>
+                    <option value="WeddingLight09">WeddingLight09</option>
+                    <option value="WeddingLight10">WeddingLight10</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="column"> Table7:</div>
+            <div class="column">
+                <select name="table7" class="custom-select">
+                    <option selected="{{ config['tables']['7'] }}">{{ config['tables']['7'] }}</option>
+                    <option value="WeddingLight01">WeddingLight01</option>
+                    <option value="WeddingLight02">WeddingLight02</option>
+                    <option value="WeddingLight03">WeddingLight03</option>
+                    <option value="WeddingLight04">WeddingLight04</option>
+                    <option value="WeddingLight05">WeddingLight05</option>
+                    <option value="WeddingLight06">WeddingLight06</option>
+                    <option value="WeddingLight07">WeddingLight07</option>
+                    <option value="WeddingLight08">WeddingLight08</option>
+                    <option value="WeddingLight09">WeddingLight09</option>
+                    <option value="WeddingLight10">WeddingLight10</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="column"> Table8:</div>
+            <div class="column">
+                <select name="table8" class="custom-select">
+                    <option selected="{{ config['tables']['8'] }}">{{ config['tables']['8'] }}</option>
+                    <option value="WeddingLight01">WeddingLight01</option>
+                    <option value="WeddingLight02">WeddingLight02</option>
+                    <option value="WeddingLight03">WeddingLight03</option>
+                    <option value="WeddingLight04">WeddingLight04</option>
+                    <option value="WeddingLight05">WeddingLight05</option>
+                    <option value="WeddingLight06">WeddingLight06</option>
+                    <option value="WeddingLight07">WeddingLight07</option>
+                    <option value="WeddingLight08">WeddingLight08</option>
+                    <option value="WeddingLight09">WeddingLight09</option>
+                    <option value="WeddingLight10">WeddingLight10</option>
+                </select>
+            </div>
+        </div>
 
-<form action="{{url_for('index')}}">
-    <input type="submit" value="Home" class="btn-info btn-sm btn-block">
-</form>
+    <div class="column">
+        <input type="submit" value="Save" class="btn-primary btn-sm btn-block">
+    </div>
+    </form>
+
+
+
+    <form action="{{url_for('index')}}">
+        <input type="submit" value="Home" class="btn-info btn-sm btn-block">
+    </form>
+
+</div>
 </body>
 </html>

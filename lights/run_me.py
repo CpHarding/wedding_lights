@@ -1,3 +1,5 @@
+#! python3
+
 import argparse
 import logging
 import os
@@ -5,14 +7,11 @@ import pprint
 import yaml
 
 from flask import Flask
-from celery import Celery
 
 import definitions as defs
 import log_ext
 import pages
 from async_light_manager import LightManager
-
-
 
 logger = logging.getLogger('WeddingLights')
 logger.setLevel(logging.DEBUG)
@@ -46,25 +45,8 @@ def create_app(settings):
 
     app.lights = LightManager({'scan': not settings.get('skip_scan', False),
                                'tables': app.settings['tables']})
-    # app.celery = make_celery(app)
+
     return app
-
-
-def make_celery(app):
-    celery = Celery(
-        app.import_name,
-        backend=app.config['CELERY_RESULT_BACKEND'],
-        broker=app.config['CELERY_BROKER_URL']
-    )
-    celery.conf.update(app.config)
-
-    class ContextTask(celery.Task):
-        def __call__(self, *args, **kwargs):
-            with app.app_context():
-                return self.run(*args, **kwargs)
-
-    celery.Task = ContextTask
-    return celery
 
 
 def load_config(app):
@@ -83,7 +65,7 @@ def load_config(app):
 def get_parser():
     parser = argparse.ArgumentParser()
     parser.add_argument('--log', default='INFO', help='logging level')
-    parser.add_argument('--skip_scan', default=False, action='store_true',  help='do not scan for clients')
+    parser.add_argument('--skip_scan', default=False, action='store_true', help='do not scan for clients')
     parser.add_argument('--debug', default=False, action='store_true', help='Run in debug mode')
     return parser
 
@@ -95,12 +77,14 @@ if __name__ == '__main__':
 
     # Set log level and display
     logger.setLevel(args.get('log', 'INFO').upper())
-    lvl = logging.getLevelName(logger.getEffectiveLevel())
-    getattr(logger, lvl.lower())(f'Log Level: {lvl}')
 
     app = create_app(args)
     if args.get('debug', False):
         os.environ['FLASK_ENV'] = 'development'
         os.environ['ENV'] = 'development'
         app.debug = True
+
+    lvl = logging.getLevelName(logger.getEffectiveLevel())
+    getattr(logger, lvl.lower())(f'Log Level: {lvl}')
+
     app.run(host='0.0.0.0')
