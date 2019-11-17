@@ -15,7 +15,9 @@ def index():
     btns = zip(btn_names, btn_url)
 
     states = [c.get('name') for c in ca.settings['states']]
-    return render_template('index.html', btns=btns, data=ca.data, states=states)
+    clients = [c.replace('Wedding', '') for c in ca.lights.clients]
+
+    return render_template('index.html', btns=btns, data=ca.data, states=states, clients=clients)
 
 
 def web_config():

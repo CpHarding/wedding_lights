@@ -36,6 +36,12 @@
                 {% endif %}
                 {% endfor %}
             </div>
+            <div class="alert alert-dark" role="alert">
+                <b>Found Clients:</b><br>
+                {% for item in clients %}
+                    {{item}},
+                {% endfor %}
+            </div>
         </div>
     </div>
     <form action="{{url_for('web_config')}}">
